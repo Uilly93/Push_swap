@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 21:49:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2023/12/29 21:51:06 by wnocchi          ###   ########.fr       */
+/*   Created: 2024/01/11 10:07:52 by wnocchi           #+#    #+#             */
+/*   Updated: 2024/01/11 10:58:55 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlen(int	*s)
+void	ft_ra(t_stack **sa)
 {
-	int	i;
+	t_stack	*current;
+	int	tmp;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	current = *sa;
+
+	while(current->next)
+	{
+		tmp = current->content;
+		current->content = current->next->content;
+		current->next->content = tmp;
+		current = current->next;
+	}
+	ft_printf("ra");
 }

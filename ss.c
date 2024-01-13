@@ -5,18 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 20:00:13 by wnocchi           #+#    #+#             */
-/*   Updated: 2023/12/29 21:52:55 by wnocchi          ###   ########.fr       */
+/*   Created: 2024/01/09 16:13:08 by wnocchi           #+#    #+#             */
+/*   Updated: 2024/01/11 11:08:31 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_ss(int *sa, int *sb)
+void	ft_ss(t_stack **sa, t_stack **sb)
 {
-	if (!sa || !sb)
-		return (0);
-	int	ft_sa(int *sa);
-	int	ft_sb(int *sb);
-	return (1);
+	int tmp;
+
+	if (*sa && (*sa)->next && *sb && (*sb)->next)
+	{
+		tmp = (*sa)->content;
+		(*sa)->content = (*sa)->next->content;
+		(*sa)->next->content = tmp;
+		tmp = (*sb)->content;
+		(*sb)->content = (*sb)->next->content;
+		(*sb)->next->content = tmp;
+	}
+	ft_printf("ss");
 }

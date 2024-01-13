@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   rra.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 16:11:03 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/11 11:08:20 by wnocchi          ###   ########.fr       */
+/*   Created: 2024/01/11 11:28:29 by wnocchi           #+#    #+#             */
+/*   Updated: 2024/01/13 10:14:32 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sb(t_stack **sb)
+void	ft_rra(t_stack **sa)
 {
-	int tmp;
-
-	if (*sb && (*sb)->next)
+	t_stack	*tmp;
+	t_stack	*current;
+	
+	tmp = NULL;
+	current = *sa;
+	while (current->next != NULL)
 	{
-		tmp = (*sb)->content;
-		(*sb)->content = (*sb)->next->content;
-		(*sb)->next->content = tmp;
+		tmp = current;
+		current = current->next;
 	}
-	ft_printf("sb");
+	tmp->next = NULL;
+    current->next = *sa;
+    *sa = current;
+	ft_printf("rra\n");
 }

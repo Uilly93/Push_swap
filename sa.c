@@ -5,40 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 16:21:48 by wnocchi           #+#    #+#             */
-/*   Updated: 2023/12/29 21:52:46 by wnocchi          ###   ########.fr       */
+/*   Created: 2024/01/09 14:49:09 by wnocchi           #+#    #+#             */
+/*   Updated: 2024/01/11 11:24:32 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_sa(int *sa)
+void	ft_sa(t_stack **sa)
 {
 	int tmp;
-	
-	if (!sa || sa[1] == '\0')
-		return (0);
-	tmp = sa[0];
-	sa[0] = sa[1];
-	sa[1] = tmp;
-	return (1);
-}
 
-int main(void)
-{
-	int	sa[] = {1};
-	int	i = 0;
-	
-	while(sa[i]){
-		printf("%d ",sa[i]);
-		i++;
+	if(*sa && (*sa)->next)
+	{
+		tmp = (*sa)->content;
+		(*sa)->content = (*sa)->next->content;
+		(*sa)->next->content = tmp;
 	}
-	printf("\n");
-	ft_sa(sa);
-	i = 0;
-	while(sa[i]){
-		printf("%d ",sa[i]);
-		i++;
-	}
+	ft_printf("sa");
 }
-

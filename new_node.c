@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   t_stack_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 16:11:03 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/11 11:08:20 by wnocchi          ###   ########.fr       */
+/*   Created: 2024/01/09 15:44:29 by wnocchi           #+#    #+#             */
+/*   Updated: 2024/01/09 16:00:17 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sb(t_stack **sb)
+t_stack	*new_node(int nb)
 {
-	int tmp;
-
-	if (*sb && (*sb)->next)
-	{
-		tmp = (*sb)->content;
-		(*sb)->content = (*sb)->next->content;
-		(*sb)->next->content = tmp;
-	}
-	ft_printf("sb");
+	t_stack	*node;
+	
+	node = malloc(sizeof(t_stack));
+	node->content = nb;
+	node->next = NULL;
+	return(node);
 }
