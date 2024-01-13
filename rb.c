@@ -14,5 +14,5 @@ void	ft_rb(t_stack **sb)
 		current->next->content = tmp;
 		current = current->next;
 	}
-	ft_printf("rb");
+	ft_printf("rb\n");
 }

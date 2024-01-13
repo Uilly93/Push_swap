@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:49:09 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/11 11:24:32 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/13 16:36:40 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	ft_sa(t_stack **sa)
 		(*sa)->content = (*sa)->next->content;
 		(*sa)->next->content = tmp;
 	}
-	ft_printf("sa");
+	ft_printf("sa\n");
 }

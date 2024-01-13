@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/13 10:22:02 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/13 16:06:35 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,9 @@ void	ft_rr(t_stack **sa, t_stack **sb);
 void	ft_rra(t_stack **sa);
 void	ft_rrb(t_stack **sb);
 void	ft_rrr(t_stack **sa, t_stack **sb);
+void	ft_sort(t_stack **sa, t_stack **sb);
+int		ft_atoi(char *s);
+void 	sort_three(t_stack **sa);
+
 
 #endif
