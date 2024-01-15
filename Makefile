@@ -6,7 +6,7 @@
 #    By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 11:11:37 by wnocchi           #+#    #+#              #
-#    Updated: 2024/01/13 16:41:02 by wnocchi          ###   ########.fr        #
+#    Updated: 2024/01/13 17:18:37 by wnocchi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,14 +18,10 @@ OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-all: $(NAME) printf
+all: printf $(NAME) 
 
-
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Lft_printf -lftprintf
-
-printf: 
-	$(MAKE) -C $(PATH_PRINTF)
+$(NAME): $(OBJS) 
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L$(PATH_PRINTF) -lftprintf
 
 clean:
 	$(RM) $(OBJS)
@@ -37,4 +33,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+printf:
+	$(MAKE) -C $(PATH_PRINTF)
+
+.PHONY: all clean fclean re printf

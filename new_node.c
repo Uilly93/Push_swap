@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_stack_new.c                                      :+:      :+:    :+:   */
+/*   new_node.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:44:29 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/09 16:00:17 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/15 10:48:09 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,19 @@ t_stack	*new_node(int nb)
 	node->content = nb;
 	node->next = NULL;
 	return(node);
+}
+
+int	lst_size(t_stack *lst)
+{
+	t_stack *current;
+	int i;
+
+	current = lst;
+	i = 0;
+	while(current)
+	{
+		current = current->next;
+		i++;
+	}
+	return (i);
 }
