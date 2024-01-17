@@ -6,16 +6,16 @@
 #    By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 11:11:37 by wnocchi           #+#    #+#              #
-#    Updated: 2024/01/13 17:18:37 by wnocchi          ###   ########.fr        #
+#    Updated: 2024/01/17 15:50:40 by wnocchi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 PATH_PRINTF = ft_printf/
-SRCS = new_node.c new_list.c pa.c sort.c pb.c ra.c rb.c rra.c rrb.c rr.c rrr.c sa.c sb.c ss.c
+SRCS = new_node.c utils.c pa.c sort.c pb.c ra.c rb.c rra.c rrb.c rr.c rrr.c sa.c sb.c ss.c
 OBJS = $(SRCS:.c=.o)
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 RM = rm -f
 
 all: printf $(NAME) 

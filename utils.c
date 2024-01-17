@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_list.c                                         :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:32:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/13 16:30:43 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/17 16:30:20 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,17 @@ t_stack	*ft_lstlast(t_stack *lst)
 	}
 	return (current);
 }
+// t_stack	*ft_lstnew(int content)
+// {
+// 	t_stack	*new;
+
+// 	new = malloc(sizeof(t_stack));
+// 	if (!new)
+// 		return (NULL);
+// 	new->content = content;
+// 	new->next = NULL;
+// 	return (new);
+// }
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
@@ -69,7 +80,7 @@ void	print_stack(t_stack **stack, char *name){
 	ft_printf("this is %s stack\n", name);
 	t_stack *current = *stack;
 	while(current){
-		ft_printf("%d -> ", current->content);
+		ft_printf("[%d] --> ", current->content);
 		current = current->next;
 	}
 	ft_printf("%p\n", current);
@@ -82,7 +93,7 @@ t_stack *single_arg(char *arg)
 	int i;
 
 	lst = NULL;
-	if(!arg)
+	if (!arg)
 		return (NULL);
 	i = 0;
 	while (arg[i]){
@@ -98,13 +109,14 @@ t_stack *single_arg(char *arg)
 	return (lst);
 }
 
-t_stack *new_list(int ac, char **av)
+t_stack *argv_list(int ac, char **av)
 {
 	t_stack *lst;
 	t_stack *node;
 	int i;
 		
 	i = 1;
+	node = NULL;
 	lst = NULL;
 	while (i < ac)
 	{
@@ -116,14 +128,23 @@ t_stack *new_list(int ac, char **av)
 }
 
 int main(int ac, char **av){
-	t_stack *lst = NULL;
+	t_stack *stack_a = NULL;
+	t_stack *stack_b = NULL;
+	// t_stack **stack_b = NULL;
 	if(ac == 2){
-	lst = single_arg(av[1]);
-	print_stack(&lst, "lst");
-	sort_three(&lst);	
+	// *stack_b = ft_lstnew(0);
+	stack_a = single_arg(av[1]);
+	print_stack(&stack_a, "stack_a");
+	// algo_sort(stack_a, stack_b);
 	}
-	// new_list(ac, av);
-	// printf("%d", (lst)->content);
-	print_stack(&lst, "lst");
-	return 0;
+	else if(ac > 2){
+	stack_a = argv_list(ac, av);
+	algo_sort(&stack_a, &stack_b);
+	// ft_printf("%d", stack_a->content);
+	print_stack(&stack_a, "stack_a");
+	print_stack(&stack_b, "stack_b");
+	return 0;	
+	}
+	else	
+		ft_printf("Error\n");
 }
