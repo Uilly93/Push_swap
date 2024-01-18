@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:56:05 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/17 16:49:44 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/18 14:16:08 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ int	find_pos(t_stack *s, int nb)
 	
 	current = s;
 	i = 1;
-	if (nb > current->content && nb > last_content(current))
-		return (0);
+	// if (nb > current->content && nb > last_content(current))
+	// 	return (0);
 	while(current->next)
 	{
 		if(nb < current->content && nb > current->next->content)
@@ -119,7 +119,7 @@ void	place_it(t_stack **a, t_stack **b)
 			ft_ra(a);
 			pos--;
 		}
-		ft_pa(a, b);
+		// ft_pa(a, b);
 		print_stack(a, "stack_a");
 		print_stack(b, "stack_a");
 	}
@@ -131,13 +131,46 @@ void	place_it(t_stack **a, t_stack **b)
 			ft_rra(a);
 			pos_b--;
 		}
-		ft_pa(a, b);
+		// ft_pa(a, b);
 		print_stack(a, "stack_a");
 		print_stack(b, "stack_b");
 
 	}
-	else if (pos == lst_size(*a) / 2 && (*b)->next)
-		ft_rb(b);
+	ft_pa(a, b);
+}
+void	place_min(t_stack **s)
+{
+	if (find_pos(*s, ft_min(*s)) <= lst_size(*s) / 2)
+	{
+		while ((*s)->content != ft_min(*s))
+			ft_ra(s);
+	}
+	else
+		while ((*s)->content != ft_min(*s))
+			ft_rra(s);
+}
+
+void	algo_sort(t_stack **a, t_stack **b)
+{
+	t_stack *current;
+
+	while(lst_size(*a) > 3)
+		ft_pb(b, a);
+	print_stack(a, "stack _A is");
+	print_stack(b, "stack _B is");
+	current = *b;
+	sort_three(a);
+	print_stack(a, "stack _a is");
+	// ft_printf("1\n");
+	if((*b)->content == ft_min(*a))
+		ft_pa(a, b);
+	// ft_printf("%s\n", current);
+	while(current->next)
+	{
+		place_it(a, b);
+		current = current->next;
+	}
+	place_min(a);
 }
 
 
@@ -175,27 +208,6 @@ void	place_it(t_stack **a, t_stack **b)
 // 	}
 // }
 
-void	algo_sort(t_stack **a, t_stack **b)
-{
-	t_stack *current;
-
-	while(lst_size(*a) > 3)
-		ft_pb(b, a);
-	print_stack(a, "stack _A is");
-	print_stack(b, "stack _B is");
-	current = *b;
-	sort_three(a);
-	print_stack(a, "stack _a is");
-	// ft_printf("1\n");
-	if((*b)->content == ft_min(*a))
-		ft_pa(a, b);
-	// ft_printf("%s\n", current);
-	while(current)
-	{
-		place_it(a, b);
-		current = current->next;
-	}
-}
 
 // void	sort_above_four(t_stack **sa, t_stack **sb)
 // {

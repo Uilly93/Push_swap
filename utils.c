@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:32:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/17 16:30:20 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/18 13:42:50 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,18 +132,18 @@ int main(int ac, char **av){
 	t_stack *stack_b = NULL;
 	// t_stack **stack_b = NULL;
 	if(ac == 2){
-	// *stack_b = ft_lstnew(0);
-	stack_a = single_arg(av[1]);
-	print_stack(&stack_a, "stack_a");
-	// algo_sort(stack_a, stack_b);
+		// *stack_b = ft_lstnew(0);
+		stack_a = single_arg(av[1]);
+		print_stack(&stack_a, "stack_a");
+		// algo_sort(stack_a, stack_b);
 	}
 	else if(ac > 2){
-	stack_a = argv_list(ac, av);
-	algo_sort(&stack_a, &stack_b);
-	// ft_printf("%d", stack_a->content);
-	print_stack(&stack_a, "stack_a");
-	print_stack(&stack_b, "stack_b");
-	return 0;	
+		stack_a = argv_list(ac, av);
+		algo_sort(&stack_a, &stack_b);
+		// ft_printf("%d", stack_a->content);
+		print_stack(&stack_a, "stack_a");
+		print_stack(&stack_b, "stack_b");
+		return 0;	
 	}
 	else	
 		ft_printf("Error\n");
