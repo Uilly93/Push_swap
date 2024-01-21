@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:56:05 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/18 14:16:08 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/21 15:24:34 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void sort_three(t_stack **sa)
 	top = (*sa)->content;
 	mid = (*sa)->next->content;
 	bot = (*sa)->next->next->content;
-	if (top < mid && top < bot && top < bot)
+	if (top < mid && mid > bot && top < bot) // NEED FIX !
 	{
 		ft_sa(sa);
 		ft_ra(sa);
@@ -38,6 +38,7 @@ void sort_three(t_stack **sa)
 	else if (top > mid && mid < bot && top > bot)
 		ft_ra(sa);
 }
+
 
 
 int	ft_min(t_stack *s)
@@ -93,45 +94,107 @@ int	find_pos(t_stack *s, int nb)
 	
 	current = s;
 	i = 1;
-	// if (nb > current->content && nb > last_content(current))
-	// 	return (0);
+	if (nb < current->content && nb > last_content(current))
+		return (0);
 	while(current->next)
 	{
-		if(nb < current->content && nb > current->next->content)
-			break;
+		if(nb > current->content && nb < current->next->content)
+			return (i);
 		current = current->next;
 		i++;
 	}
 	return (i);
 }
 
+int	find_pos_b(t_stack *s, int nb)
+{
+	int i;
+	t_stack *current;
+	
+	current = s;
+	i = 1;
+	if (nb > current->content && nb < last_content(current))
+		return (0);
+	while(current->next)
+	{
+		if(nb < current->content && nb > current->next->content)
+			return (i);
+		current = current->next;
+		i++;
+	}
+	return (i);
+}
+
+void	place_max(t_stack **s)
+{
+	if (find_pos(*s, ft_max(*s)) <= lst_size(*s) / 2)
+	{
+		while ((*s)->content != ft_max(*s))
+			ft_ra(s);
+	}
+	else
+		while ((*s)->content != ft_max(*s))
+			ft_rra(s);
+}
+
 void	place_it(t_stack **a, t_stack **b)
 {
 	int pos;
-	int pos_b;
+	int	pos_b;
 	
 	pos = find_pos(*a, (*b)->content);
 	ft_printf("content is %d | pos is : %d\n",(*b)->content, pos);
-	if (pos < lst_size(*a) / 2)
+	if (pos <= lst_size(*a) / 2)
 	{
-		while (pos > 0)
+		while(pos >= 0)
 		{
-			ft_ra(a);
+			ft_ra(a); // rotate vers le haut
 			pos--;
 		}
-		// ft_pa(a, b);
 		print_stack(a, "stack_a");
 		print_stack(b, "stack_a");
 	}
-	else if (pos > lst_size(*a) / 2)
+	else
 	{
 		pos_b = lst_size(*a) - pos;
+		ft_printf("content is %d | pos_b is : %d\n",(*b)->content, pos_b);
 		while(pos_b > 0)
 		{
-			ft_rra(a);
+			ft_rra(a); //rotate vers le bas
 			pos_b--;
 		}
-		// ft_pa(a, b);
+		print_stack(a, "stack_a");
+		print_stack(b, "stack_b");
+
+	}
+	ft_pa(a, b);
+}
+
+void	place_it_b(t_stack **a, t_stack **b)
+{
+	int pos;
+	int	pos_b;
+	
+	pos = find_pos_b(*a, (*b)->content);
+	if (pos <= lst_size(*a) / 2)
+	{
+		ft_printf("content is %d | pos is : %d\n",(*b)->content, pos);
+		while(pos > 0)
+		{
+			ft_ra(a); // rotate vers le haut
+			pos--;
+		}
+		print_stack(a, "stack_a");
+		print_stack(b, "stack_a");
+	}
+	else if(pos > lst_size(*a) / 2)
+	{
+		pos_b = lst_size(*a) - pos;
+		ft_printf("content is %d | pos_b is : %d\n",(*b)->content, pos_b);
+		while(pos_b >= 0){
+			ft_rra(a); //rotate vers le bas
+			pos_b--;
+		}
 		print_stack(a, "stack_a");
 		print_stack(b, "stack_b");
 
@@ -150,27 +213,78 @@ void	place_min(t_stack **s)
 			ft_rra(s);
 }
 
+void	sort_four(t_stack **a, t_stack **b)
+{
+	ft_pb(b, a);
+	sort_three(a);
+	place_it(a, b);
+	place_min(a);
+}
+
 void	algo_sort(t_stack **a, t_stack **b)
 {
 	t_stack *current;
-
-	while(lst_size(*a) > 3)
-		ft_pb(b, a);
-	print_stack(a, "stack _A is");
-	print_stack(b, "stack _B is");
-	current = *b;
+	if (check_sort(*a, *b) == 1)
+		return ;
+	ft_pb(b, a);
+	ft_pb(b, a);	
+	while(lst_size(*a) > 3){
+		place_it_b(b, a);
+		print_stack(a, "stack _A is");
+		print_stack(b, "stack _B is");
+	}
 	sort_three(a);
+	print_stack(a, "SORTED THREE --->");
 	print_stack(a, "stack _a is");
-	// ft_printf("1\n");
-	if((*b)->content == ft_min(*a))
-		ft_pa(a, b);
-	// ft_printf("%s\n", current);
-	while(current->next)
+	current = *b;
+	while(current)
 	{
+		if(((*b)->content > ft_max(*a)))
+		{
+			place_min(a);
+			ft_pa(a, b);
+		}
 		place_it(a, b);
-		current = current->next;
+		if(*b == NULL)
+			break;
 	}
 	place_min(a);
+}
+
+void	other_sort(t_stack **a, t_stack **b)
+{
+	t_stack *current;
+
+	current = *a;
+	while(current)
+	{
+		if(current == NULL)
+			break;
+		place_min(a);
+		ft_pb(b, a);
+	}
+	while(*b)
+	{
+		if(*b == NULL)
+			break;
+		ft_pa(a, b);
+	}
+}
+
+int	check_sort(t_stack *a, t_stack *b)
+{
+	while(a->next)
+	{
+		if(a->content < a->next->content)
+		{
+			a = a->next;
+		}
+		else
+			return (0);
+	}
+	if (b == NULL)
+		return (1);
+	return (0);
 }
 
 

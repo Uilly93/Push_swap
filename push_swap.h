@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/17 16:16:10 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/21 14:56:22 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,20 @@ int		lst_size(t_stack *lst);
 int		ft_min(t_stack *s);
 int		ft_max(t_stack *s);
 int		find_pos(t_stack *s, int nb);
+int		find_pos_b(t_stack *s, int nb);
 void	place_it(t_stack **a, t_stack **b);
+void	place_it_b(t_stack **a, t_stack **b);
+void	place_min(t_stack **s);
 void	algo_sort(t_stack **a, t_stack **b);
 t_stack	*ft_lstlast(t_stack *lst);
 void	ft_lstadd_back(t_stack **lst, t_stack *add);
 int 	last_content(t_stack *s);
 t_stack	*ft_lstnew(int content);
 void	print_stack(t_stack **stack, char *name);
+int		check_sort(t_stack *a, t_stack *b);
+void	sort_four(t_stack **a, t_stack **b);
+void	other_sort(t_stack **a, t_stack **b); //TEST
+
 
 
 

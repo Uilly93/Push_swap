@@ -6,11 +6,12 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:32:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/18 13:42:50 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/21 16:18:35 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <threads.h>
 
 t_stack	*ft_lstlast(t_stack *lst)
 {
@@ -28,17 +29,6 @@ t_stack	*ft_lstlast(t_stack *lst)
 	}
 	return (current);
 }
-// t_stack	*ft_lstnew(int content)
-// {
-// 	t_stack	*new;
-
-// 	new = malloc(sizeof(t_stack));
-// 	if (!new)
-// 		return (NULL);
-// 	new->content = content;
-// 	new->next = NULL;
-// 	return (new);
-// }
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
@@ -136,13 +126,17 @@ int main(int ac, char **av){
 		stack_a = single_arg(av[1]);
 		print_stack(&stack_a, "stack_a");
 		// algo_sort(stack_a, stack_b);
+		ft_printf("%d", check_sort(stack_a, stack_b));
+		return (0);
 	}
 	else if(ac > 2){
 		stack_a = argv_list(ac, av);
 		algo_sort(&stack_a, &stack_b);
+		// other_sort(&stack_a, &stack_a);
 		// ft_printf("%d", stack_a->content);
 		print_stack(&stack_a, "stack_a");
 		print_stack(&stack_b, "stack_b");
+		ft_printf("%d", check_sort(stack_a, stack_b));
 		return 0;	
 	}
 	else	
