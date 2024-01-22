@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/21 14:56:22 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/22 16:24:26 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		find_pos_b(t_stack *s, int nb);
 void	place_it(t_stack **a, t_stack **b);
 void	place_it_b(t_stack **a, t_stack **b);
 void	place_min(t_stack **s);
+void	place_min_b(t_stack **s);
 void	algo_sort(t_stack **a, t_stack **b);
 t_stack	*ft_lstlast(t_stack *lst);
 void	ft_lstadd_back(t_stack **lst, t_stack *add);

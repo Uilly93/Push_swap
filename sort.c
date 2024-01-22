@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:56:05 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/22 15:40:36 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/22 16:26:06 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,20 +174,20 @@ void	place_it(t_stack **a, t_stack **b)
 	ft_pa(a, b);
 }
 
-void	place_it_b(t_stack **a, t_stack **b)
+void	place_it_b(t_stack **b, t_stack **a)
 {
 	int pos;
 	int	pos_b;
 	
-	pos = find_pos_b(*a, (*b)->content);
-	if ((*a)->content > ft_max(*b))
-		place_min(b);
-	if (pos < (lst_size(*a) / 2))
+	pos = find_pos_b(*b, (*a)->content);
+	if ((*b)->content > ft_max(*a))
+		place_min(a);
+	if (pos < (lst_size(*b) / 2))
 	{
 		// ft_printf("content is %d | pos is : %d\n",(*b)->content, pos);
 		while(pos > 0)
 		{
-			ft_rb(a); // rotate vers le haut
+			ft_rb(b); // rotate vers le haut
 			pos--;
 		}
 		// print_stack(a, "stack_a");
@@ -195,11 +195,11 @@ void	place_it_b(t_stack **a, t_stack **b)
 	}
 	else// if(pos > (lst_size(*a) / 2))
 	{
-		pos_b = lst_size(*a) - pos;
+		pos_b = lst_size(*b) - pos;
 		// ft_printf("content is %d | pos_b is : %d\n",(*b)->content, pos_b);
 		while(pos_b > 0)
 		{
-			ft_rrb(a); //rotate vers le bas
+			ft_rrb(b); //rotate vers le bas
 			pos_b--;
 		}
 		// print_stack(a, "stack_a");
@@ -208,10 +208,24 @@ void	place_it_b(t_stack **a, t_stack **b)
 	}
 	// print_stack(a, "stack_a");
 	// print_stack(b, "stack_b");
-	ft_pb(a, b);
+	ft_pb(b, a);
 	// print_stack(a, "stack_a");
 	// print_stack(b, "stack_b");
 
+}
+void	place_min_b(t_stack **s)
+{
+	// printf("find_pos: %d\n", find_pos(*s, ft_min(*s)));
+	if (find_pos(*s, ft_min(*s)) < lst_size(*s) / 2)
+	{
+		while ((*s)->content != ft_min(*s))
+			ft_rb(s);
+	}
+	else //if (find_pos(*s, ft_min(*s)) > lst_size(*s) / 2)
+	{
+		while ((*s)->content != ft_min(*s))
+			ft_rrb(s);
+	}
 }
 void	place_min(t_stack **s)
 {
