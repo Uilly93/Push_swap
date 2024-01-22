@@ -1,5 +1,7 @@
 */*.o
+*.o
+*.txt
 main.c
 push_swap
 checker_linux
-push_swap-tester/
+push_swap-tester
