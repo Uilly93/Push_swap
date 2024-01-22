@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:56:05 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/22 14:37:40 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/22 15:40:36 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,7 +187,7 @@ void	place_it_b(t_stack **a, t_stack **b)
 		// ft_printf("content is %d | pos is : %d\n",(*b)->content, pos);
 		while(pos > 0)
 		{
-			ft_ra(a); // rotate vers le haut
+			ft_rb(a); // rotate vers le haut
 			pos--;
 		}
 		// print_stack(a, "stack_a");
@@ -199,14 +199,19 @@ void	place_it_b(t_stack **a, t_stack **b)
 		// ft_printf("content is %d | pos_b is : %d\n",(*b)->content, pos_b);
 		while(pos_b > 0)
 		{
-			ft_rra(a); //rotate vers le bas
+			ft_rrb(a); //rotate vers le bas
 			pos_b--;
 		}
 		// print_stack(a, "stack_a");
 		// print_stack(b, "stack_b");
 
 	}
-	ft_pa(a, b);
+	// print_stack(a, "stack_a");
+	// print_stack(b, "stack_b");
+	ft_pb(a, b);
+	// print_stack(a, "stack_a");
+	// print_stack(b, "stack_b");
+
 }
 void	place_min(t_stack **s)
 {
@@ -279,25 +284,25 @@ void	algo_sort(t_stack **a, t_stack **b)
 	}
 }
 
-void	other_sort(t_stack **a, t_stack **b)
-{
-	t_stack *current;
+// void	other_sort(t_stack **a, t_stack **b)
+// {
+// 	t_stack *current;
 
-	current = *a;
-	while(current)
-	{
-		if(current == NULL)
-			break;
-		place_min(a);
-		ft_pb(b, a);
-	}
-	while(*b)
-	{
-		if(*b == NULL)
-			break;
-		ft_pa(a, b);
-	}
-}
+// 	current = *a;
+// 	while(current)
+// 	{
+// 		if(current == NULL)
+// 			break;
+// 		place_min(a);
+// 		ft_pb(b, a);
+// 	}
+// 	while(*b)
+// 	{
+// 		if(*b == NULL)
+// 			break;
+// 		ft_pa(a, b);
+// 	}
+// }
 
 int	check_sort(t_stack *a, t_stack *b)
 {

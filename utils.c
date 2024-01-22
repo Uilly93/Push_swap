@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:32:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/22 14:30:21 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/22 15:39:45 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,8 @@ int main(int ac, char **av){
 		// *stack_b = ft_lstnew(0);
 		stack_a = single_arg(av[1]);
 		// print_stack(&stack_a, "stack_a");
-		// algo_sort(stack_a, stack_b);
-		ft_printf("%d", check_sort(stack_a, stack_b));
+		algo_sort(&stack_a, &stack_b);
+		// ft_printf("%d", check_sort(stack_a, stack_b))
 		return (0);
 	}
 	else if(ac > 2){
@@ -136,7 +136,7 @@ int main(int ac, char **av){
 		// ft_printf("%d", stack_a->content);
 		// print_stack(&stack_a, "stack_a");
 		// print_stack(&stack_b, "stack_b");
-		ft_printf("%d", check_sort(stack_a, stack_b));
+		// ft_printf("%d", check_sort(stack_a, stack_b));
 		return 0;	
 	}
 	else	
