@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:14:54 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/11 11:18:53 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/23 17:02:48 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	ft_rr(t_stack **sa, t_stack **sb)
 {
 	t_stack	*current;
-	int	tmp;
+	int		tmp;
 
 	current = *sa;
-	while(current->next)
+	while (current->next)
 	{
 		tmp = current->content;
 		current->content = current->next->content;
@@ -26,7 +26,7 @@ void	ft_rr(t_stack **sa, t_stack **sb)
 		current = current->next;
 	}
 	current = *sb;
-	while(current->next)
+	while (current->next)
 	{
 		tmp = current->content;
 		current->content = current->next->content;

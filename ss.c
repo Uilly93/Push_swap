@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:13:08 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/13 16:36:48 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/23 17:00:57 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_ss(t_stack **sa, t_stack **sb)
 {
-	int tmp;
+	int	tmp;
 
 	if (*sa && (*sa)->next && *sb && (*sb)->next)
 	{

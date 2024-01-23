@@ -6,14 +6,14 @@
 #    By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 11:11:37 by wnocchi           #+#    #+#              #
-#    Updated: 2024/01/17 15:50:40 by wnocchi          ###   ########.fr        #
+#    Updated: 2024/01/23 16:44:03 by wnocchi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 PATH_PRINTF = ft_printf/
-SRCS = new_node.c utils.c pa.c sort.c pb.c ra.c rb.c rra.c rrb.c rr.c rrr.c sa.c sb.c ss.c
+SRCS = main.c list_utils.c list_manage_display.c checks_and_errors.c sort_utils.c utils.c sort.c pa.c pb.c ra.c rb.c rra.c rrb.c rr.c rrr.c sa.c sb.c ss.c
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Wextra -Werror -g3
 RM = rm -f

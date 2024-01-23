@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 10:15:02 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/13 10:20:19 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/23 17:02:21 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_rrr(t_stack **sa, t_stack **sb)
 {
 	t_stack	*tmp;
 	t_stack	*current;
-	
+
 	tmp = NULL;
 	current = *sa;
 	while (current->next != NULL)
@@ -25,8 +25,8 @@ void	ft_rrr(t_stack **sa, t_stack **sb)
 		current = current->next;
 	}
 	tmp->next = NULL;
-    current->next = *sa;
-    *sa = current;
+	current->next = *sa;
+	*sa = current;
 	tmp = NULL;
 	current = *sb;
 	while (current->next != NULL)
@@ -35,7 +35,7 @@ void	ft_rrr(t_stack **sa, t_stack **sb)
 		current = current->next;
 	}
 	tmp->next = NULL;
-    current->next = *sb;
-    *sb = current;
+	current->next = *sb;
+	*sb = current;
 	ft_printf("rrr\n");
 }

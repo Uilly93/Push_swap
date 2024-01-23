@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:07:52 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/13 16:36:24 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/23 17:05:11 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 void	ft_ra(t_stack **sa)
 {
 	t_stack	*current;
-	int	tmp;
+	int		tmp;
 
 	current = *sa;
-
-	while(current->next)
+	while (current->next)
 	{
 		tmp = current->content;
 		current->content = current->next->content;
