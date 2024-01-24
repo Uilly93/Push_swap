@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:38:19 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/23 16:54:07 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/24 11:02:23 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,19 @@ void	place_min(t_stack **s)
 	{
 		while ((*s)->content != ft_min(*s))
 			ft_rra(s);
+	}
+}
+
+void	place_max_b(t_stack **s)
+{
+	if (find_pos(*s, ft_max(*s)) < lst_size(*s) / 2)
+	{
+		while ((*s)->content != ft_max(*s))
+			ft_rb(s);
+	}
+	else
+	{
+		while ((*s)->content != ft_max(*s))
+			ft_rrb(s);
 	}
 }

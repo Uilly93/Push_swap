@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/23 17:19:12 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/24 10:59:07 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	place_it(t_stack **a, t_stack **b); // sort utils
 void	place_it_b(t_stack **a, t_stack **b);
 void	place_min(t_stack **s);
 void	place_min_b(t_stack **s);
+void	place_max_b(t_stack **s);
 
 t_stack	*new_node(int nb); // list utils
 int		lst_size(t_stack *lst);

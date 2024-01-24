@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:56:05 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/23 16:53:34 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/24 11:06:07 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	algo_sort(t_stack **a, t_stack **b)
 		}
 		sort_three(a);
 		current = *b;
+		place_max_b(b);
 		while (current)
 		{
 			place_it(a, b);

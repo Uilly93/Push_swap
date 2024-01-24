@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:44:29 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/23 16:57:49 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/24 10:16:52 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,12 @@ int	lst_size(t_stack *lst)
 t_stack	*ft_lstlast(t_stack *lst)
 {
 	t_stack	*current;
-	int		i;
 
 	if (!lst)
 		return (0);
 	current = lst;
-	i = 0;
 	while (current->next)
 	{
-		i++;
 		current = current->next;
 	}
 	return (current);

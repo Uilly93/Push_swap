@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:15:32 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/23 17:20:17 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/24 10:47:01 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ int	main(int ac, char **av)
 		display_error();
 		free_lsts(&stack_a, &stack_b);
 	}
+	return (0);
 }
