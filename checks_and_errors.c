@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:57:12 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/23 16:59:20 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/25 11:52:25 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_duplicate(t_stack *a, t_stack *b)
 	return (0);
 }
 
-int	check_sort(t_stack *a, t_stack *b)
+int	check_sort(t_stack *a)
 {
 	while (a->next)
 	{
@@ -57,9 +57,7 @@ int	check_sort(t_stack *a, t_stack *b)
 		else
 			return (0);
 	}
-	if (b == NULL)
-		return (1);
-	return (0);
+	return (1);
 }
 
 int	display_error(void)

@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/24 10:59:07 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/25 13:53:27 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,16 @@ int		display_error(void); // checks and errors
 void	free_lsts(t_stack **a, t_stack **b);
 int		check_duplicate(t_stack *a, t_stack *b);
 int		global_checks(t_stack *a, t_stack *b);
-int		check_sort(t_stack *a, t_stack *b);
+int		check_sort(t_stack *a);
 
 void	sort_two(t_stack **a);
 void 	sort_three(t_stack **sa); // sort
 void	algo_sort(t_stack **a, t_stack **b);
 void	sort_four(t_stack **a, t_stack **b);
 void	identify_size_check_sort(t_stack **a, t_stack **b);
+
+void	determine_side_b(t_stack **b, int pos, int pos_b);
+void	determine_side_a(t_stack **a, int pos, int pos_b);
+int		find_optimal_move_for_b(t_stack *a, t_stack *b);
 
 #endif
