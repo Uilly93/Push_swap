@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:56:05 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/25 15:13:44 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/27 15:19:04 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	sort_four(t_stack **a, t_stack **b)
 	place_min(a);
 }
 
+
 void	identify_size_check_sort(t_stack **a, t_stack **b)
 {
 	if (lst_size(*a) == 2)
@@ -75,13 +76,14 @@ void	algo_sort(t_stack **a, t_stack **b)
 	{
 		ft_pb(b, a);
 		ft_pb(b, a);
+		place_max_b(b);
 		while (lst_size(*a) > 3)
 		{
 			place_it_b(b, a);
 		}
+		// print_stack(b, "B");
 		sort_three(a);
 		current = *b;
-		// place_max_b(b);
 		while (current)
 		{
 			place_it(a, b);

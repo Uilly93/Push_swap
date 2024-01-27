@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:32:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/24 10:20:55 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/27 15:45:40 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ int	find_pos_b(t_stack *s, int nb)
 	i = 1;
 	if (nb > current->content && nb < last_content(current))
 		return (0);
+	if(nb > ft_max(s) || nb < ft_min(s))
+		return (find_index(s, ft_max(s)));
 	while (current->next)
 	{
 		if (nb < current->content && nb > current->next->content)

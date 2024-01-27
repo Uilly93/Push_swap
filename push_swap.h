@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/25 13:53:27 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/27 15:42:51 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ void	place_it_b(t_stack **a, t_stack **b);
 void	place_min(t_stack **s);
 void	place_min_b(t_stack **s);
 void	place_max_b(t_stack **s);
+void	place_max(t_stack **s);
+int		find_index(t_stack *s, int nb);
+
 
 t_stack	*new_node(int nb); // list utils
 int		lst_size(t_stack *lst);
@@ -80,6 +83,6 @@ void	identify_size_check_sort(t_stack **a, t_stack **b);
 
 void	determine_side_b(t_stack **b, int pos, int pos_b);
 void	determine_side_a(t_stack **a, int pos, int pos_b);
-int		find_optimal_move_for_b(t_stack *a, t_stack *b);
+int		find_optimal_move_for_b(t_stack **a, t_stack **b);
 
 #endif

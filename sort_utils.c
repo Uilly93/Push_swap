@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:38:19 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/25 16:11:43 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/27 14:12:25 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	place_it_b(t_stack **b, t_stack **a)
 
 void	place_min_b(t_stack **s)
 {
-	if (find_pos(*s, ft_min(*s)) < lst_size(*s) / 2)
+	if (find_pos(*s, ft_min(*s)) < (lst_size(*s) / 2))
 	{
 		while ((*s)->content != ft_min(*s))
 			ft_rb(s);
@@ -54,7 +54,7 @@ void	place_min_b(t_stack **s)
 
 void	place_min(t_stack **s)
 {
-	if (find_pos(*s, ft_min(*s)) < lst_size(*s) / 2)
+	if (find_pos(*s, ft_min(*s)) < (lst_size(*s) / 2))
 	{
 		while ((*s)->content != ft_min(*s))
 			ft_ra(s);
@@ -68,7 +68,7 @@ void	place_min(t_stack **s)
 
 void	place_max_b(t_stack **s)
 {
-	if (find_pos(*s, ft_max(*s)) > lst_size(*s) / 2)
+	if (find_pos(*s, ft_max(*s)) < (lst_size(*s) / 2))
 	{
 		while ((*s)->content != ft_max(*s))
 			ft_rb(s);
