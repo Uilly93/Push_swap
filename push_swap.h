@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/27 15:42:51 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/27 19:59:41 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_stack
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <threads.h>
 
 
 void	ft_sa(t_stack **sa); //
