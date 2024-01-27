@@ -6,3 +6,4 @@ main.c
 push_swap
 checker_linux
 push_swap-tester
+.DS_STORE
