@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/27 19:59:41 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/28 20:42:03 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,20 @@ void	identify_size_check_sort(t_stack **a, t_stack **b);
 void	determine_side_b(t_stack **b, int pos, int pos_b);
 void	determine_side_a(t_stack **a, int pos, int pos_b);
 int		find_optimal_move_for_b(t_stack **a, t_stack **b);
+
+int		how_many_ra_rb(t_stack **a, t_stack **b, int nb);
+int		how_many_ra_rrb(t_stack **a, t_stack **b, int nb);
+int		how_many_rra_rb(t_stack **a, t_stack **b, int nb);
+int		how_many_rra_rrb(t_stack **a, t_stack **b, int nb);
+
+int		execute_rra_rrb(t_stack **a, t_stack **b, int nb);
+int		execute_ra_rb(t_stack **a, t_stack **b, int nb);
+int		execute_ra_rrb(t_stack **a, t_stack **b, int nb);
+int		execute_rra_rb(t_stack **a, t_stack **b, int nb);
+
+void	cmp_execute_case(t_stack **a, t_stack **b);
+int		worth_move(t_stack **a, t_stack **b);
+
+
 
 #endif

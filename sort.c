@@ -6,10 +6,11 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:56:05 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/27 15:19:04 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/28 20:55:19 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf/ft_printf.h"
 #include "push_swap.h"
 
 void	sort_two(t_stack **a)
@@ -76,11 +77,9 @@ void	algo_sort(t_stack **a, t_stack **b)
 	{
 		ft_pb(b, a);
 		ft_pb(b, a);
+		// place_max_b(b);
+		cmp_execute_case(a, b);
 		place_max_b(b);
-		while (lst_size(*a) > 3)
-		{
-			place_it_b(b, a);
-		}
 		// print_stack(b, "B");
 		sort_three(a);
 		current = *b;
@@ -91,5 +90,7 @@ void	algo_sort(t_stack **a, t_stack **b)
 				break ;
 		}
 		place_min(a);
+		// print_stack(a, "a");
+		// ft_printf("%d", check_sort(*a));
 	}
 }
