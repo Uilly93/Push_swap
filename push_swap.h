@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/28 20:42:03 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/28 22:54:59 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_stack
 # include <limits.h>
 
 
-void	ft_sa(t_stack **sa); //
+void	ft_sa(t_stack **sa);
 void	ft_sb(t_stack **sb);
 void	ft_ss(t_stack **sa, t_stack **sb);
 void	ft_pa(t_stack **sa, t_stack **sb);
@@ -48,13 +48,8 @@ int		find_pos(t_stack *s, int nb);
 int		find_pos_b(t_stack *s, int nb);
 
 void	place_it(t_stack **a, t_stack **b); // sort utils
-void	place_it_b(t_stack **a, t_stack **b);
 void	place_min(t_stack **s);
-void	place_min_b(t_stack **s);
 void	place_max_b(t_stack **s);
-void	place_max(t_stack **s);
-int		find_index(t_stack *s, int nb);
-
 
 t_stack	*new_node(int nb); // list utils
 int		lst_size(t_stack *lst);
@@ -80,9 +75,10 @@ void	algo_sort(t_stack **a, t_stack **b);
 void	sort_four(t_stack **a, t_stack **b);
 void	identify_size_check_sort(t_stack **a, t_stack **b);
 
-void	determine_side_b(t_stack **b, int pos, int pos_b);
 void	determine_side_a(t_stack **a, int pos, int pos_b);
-int		find_optimal_move_for_b(t_stack **a, t_stack **b);
+void	cmp_execute_case(t_stack **a, t_stack **b);
+int		worth_move(t_stack **a, t_stack **b);
+int		find_index(t_stack *s, int nb);
 
 int		how_many_ra_rb(t_stack **a, t_stack **b, int nb);
 int		how_many_ra_rrb(t_stack **a, t_stack **b, int nb);
@@ -93,10 +89,5 @@ int		execute_rra_rrb(t_stack **a, t_stack **b, int nb);
 int		execute_ra_rb(t_stack **a, t_stack **b, int nb);
 int		execute_ra_rrb(t_stack **a, t_stack **b, int nb);
 int		execute_rra_rb(t_stack **a, t_stack **b, int nb);
-
-void	cmp_execute_case(t_stack **a, t_stack **b);
-int		worth_move(t_stack **a, t_stack **b);
-
-
 
 #endif
