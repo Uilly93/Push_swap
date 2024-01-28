@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:47:50 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/27 16:41:02 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/28 10:37:55 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,25 @@ int	how_many_rra_rb(t_stack **a, t_stack **b, int nb)
 	if(find_index(*b, nb) > 0)
 		move_count += find_pos_b(*b, nb);
 	return (move_count);
+}
+void	execute_ra_rb(t_stack **a, t_stack **b, int nb)
+{
+	int moves;
+	
+	moves = how_many_ra_rb(a, b, nb);
+	while(moves > 0)
+	{
+		while((*a)->content != nb || find_pos_b(a, b) != 0){
+			ft_rr(a, b);
+			moves = -2;
+		}
+		if((*a)->content != nb){
+			ft_ra(a);
+			moves--;
+		}
+		if(find_pos_b(*a, nb) != 0){
+			ft_rb(b);
+			moves--;
+		}
+	}
 }
