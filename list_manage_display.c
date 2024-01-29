@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:17:35 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/29 11:46:50 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/29 17:49:20 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_stack	*argv_list(int ac, char **av)
 int	handle_string_arg(t_stack *stack_a, t_stack *stack_b, char **av)
 {
 	stack_a = single_arg(av[1]);
-	if ((!av) || (*av[1] == 0) || check_duplicate(stack_a, stack_b))
+	if ((!av) || (*av[1] == 0) || check_duplicate(stack_a, stack_b) == 1)
 	{
 		write(2, "Error\n", 6);
 		return (1);
@@ -71,7 +71,7 @@ int	handle_string_arg(t_stack *stack_a, t_stack *stack_b, char **av)
 int	multi_args(t_stack *stack_a, t_stack *stack_b, int ac, char **av)
 {
 	stack_a = argv_list(ac, av);
-	check_duplicate(stack_a, stack_b);
+	if (check_duplicate(stack_a, stack_b) == 1)
 	{
 		write(2, "Error\n", 6);
 		return (1);

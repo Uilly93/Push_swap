@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/29 11:02:54 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/29 17:49:04 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_rra(t_stack **sa);
 void	ft_rrb(t_stack **sb);
 void	ft_rrr(t_stack **sa, t_stack **sb);
 
-int		ft_atoi(char *s);// utils
+long	ft_atoi(char *s);// utils
 int		ft_min(t_stack *s);
 int		ft_max(t_stack *s);
 int		find_pos(t_stack *s, int nb);
@@ -61,11 +61,12 @@ t_stack	*argv_list(int ac, char **av);
 int		handle_string_arg(t_stack *stack_a, t_stack *stack_b, char **av);
 int		multi_args(t_stack *stack_a, t_stack *stack_b, int ac, char **av);
 
-// int		display_error(void); // checks and errors
+// checks and errors
 void	free_lsts(t_stack **a, t_stack **b);
 int		check_duplicate(t_stack *a, t_stack *b);
-int		global_checks(t_stack *a, t_stack *b);
+int		check_overflow(int ac, char **arg);
 int		check_sort(t_stack *a);
+int		ft_strcmp(char *s1, char *s2);
 
 void	sort_two(t_stack **a); // sort
 void	sort_three(t_stack **sa);
@@ -87,5 +88,7 @@ int		execute_rra_rrb(t_stack **a, t_stack **b, int nb);
 int		execute_ra_rb(t_stack **a, t_stack **b, int nb);
 int		execute_ra_rrb(t_stack **a, t_stack **b, int nb);
 int		execute_rra_rb(t_stack **a, t_stack **b, int nb);
+
+char	*ft_itoa(int n);
 
 #endif

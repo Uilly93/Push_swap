@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 10:15:32 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/29 11:02:28 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/29 17:02:18 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	if (check_overflow(ac, av) == 1)
+	{
+		write(2, "Error\n", 6);
+		return (0);
+	}
 	if (ac == 2)
 		handle_string_arg(stack_a, stack_b, av);
 	else if (ac > 2)

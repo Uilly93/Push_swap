@@ -6,17 +6,17 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:32:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/29 09:38:15 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/29 17:49:40 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(char *s)
+long	ft_atoi(char *s)
 {
-	int	i;
-	int	nb;
-	int	sign;
+	int		i;
+	long	nb;
+	long	sign;
 
 	i = 0;
 	sign = 1;
@@ -31,8 +31,7 @@ int	ft_atoi(char *s)
 	}
 	while (s[i] >= '0' && s[i] <= '9')
 	{
-		nb *= 10;
-		nb += (s[i] - '0');
+		nb = nb * 10 + (s[i] - '0');
 		i++;
 	}
 	return (nb * sign);
