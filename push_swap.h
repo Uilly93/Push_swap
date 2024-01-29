@@ -6,21 +6,14 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/28 22:54:59 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:41:41 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 
 # define PUSH_SWAP_H
-#include "ft_printf/ft_printf.h"
-
-typedef struct s_stack
-{
-	int 			content;
-	struct s_stack	*next;
-}					t_stack;
-
+# include "ft_printf/ft_printf.h"
 # include <stddef.h>
 # include <stdio.h>
 # include <string.h>
@@ -28,13 +21,18 @@ typedef struct s_stack
 # include <stdlib.h>
 # include <limits.h>
 
+typedef struct s_stack
+{
+	int				content;
+	struct s_stack	*next;
+}					t_stack;
 
 void	ft_sa(t_stack **sa);
 void	ft_sb(t_stack **sb);
 void	ft_ss(t_stack **sa, t_stack **sb);
 void	ft_pa(t_stack **sa, t_stack **sb);
 void	ft_pb(t_stack **sb, t_stack **sa);
-void 	ft_ra(t_stack **sa);
+void	ft_ra(t_stack **sa);
 void	ft_rb(t_stack **sb);
 void	ft_rr(t_stack **sa, t_stack **sb);
 void	ft_rra(t_stack **sa);
@@ -55,13 +53,13 @@ t_stack	*new_node(int nb); // list utils
 int		lst_size(t_stack *lst);
 t_stack	*ft_lstlast(t_stack *lst);
 void	ft_lstadd_back(t_stack **lst, t_stack *add);
-int 	last_content(t_stack *s);
+int		last_content(t_stack *s);
 
 void	print_stack(t_stack **stack, char *name); // list manage
-t_stack *single_arg(char *arg);
-t_stack *argv_list(int ac, char **av);
+t_stack	*single_arg(char *arg);
+t_stack	*argv_list(int ac, char **av);
 int		handle_string_arg(t_stack *stack_a, t_stack *stack_b, char **av);
-int		handle_multi_args(t_stack *stack_a, t_stack *stack_b, int ac, char **av);
+int		multi_args(t_stack *stack_a, t_stack *stack_b, int ac, char **av);
 
 int		display_error(void); // checks and errors
 void	free_lsts(t_stack **a, t_stack **b);
@@ -70,7 +68,7 @@ int		global_checks(t_stack *a, t_stack *b);
 int		check_sort(t_stack *a);
 
 void	sort_two(t_stack **a);
-void 	sort_three(t_stack **sa); // sort
+void	sort_three(t_stack **sa); // sort
 void	algo_sort(t_stack **a, t_stack **b);
 void	sort_four(t_stack **a, t_stack **b);
 void	identify_size_check_sort(t_stack **a, t_stack **b);

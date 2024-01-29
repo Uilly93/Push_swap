@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:17:35 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/28 19:42:21 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:42:12 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ t_stack	*argv_list(int ac, char **av)
 	}
 	return (lst);
 }
+
 int	handle_string_arg(t_stack *stack_a, t_stack *stack_b, char **av)
 {
 	if ((!av) || (*av[1] == 0))
@@ -62,28 +63,33 @@ int	handle_string_arg(t_stack *stack_a, t_stack *stack_b, char **av)
 		return (display_error());
 	algo_sort(&stack_a, &stack_b);
 	print_stack(&stack_a, "stack_a");
-	// free_lsts(&stack_a, &stack_b);
 	return (0);
 }
-int	handle_multi_args(t_stack *stack_a, t_stack *stack_b, int ac, char **av)
+	// free_lsts(&stack_a, &stack_b);
+
+int	multi_args(t_stack *stack_a, t_stack *stack_b, int ac, char **av)
 {
 	stack_a = argv_list(ac, av);
-		if (global_checks(stack_a, stack_b) == 1)
-			return (display_error());
-		algo_sort(&stack_a, &stack_b);
+	if (global_checks(stack_a, stack_b) == 1)
+		return (display_error());
+	algo_sort(&stack_a, &stack_b);
+	free_lsts(&stack_a, &stack_b);
+	return (0);
+}
 		// print_stack(&stack_a, "stack_a");
 		// ft_printf("%d\n", check_sort(stack_a));
-		free_lsts(&stack_a, &stack_b);
-		return (0);
-}
 
-void	print_stack(t_stack **stack, char *name){
+void	print_stack(t_stack **stack, char *name)
+{
+	t_stack	*current;
+
+	current = *stack;
 	ft_printf("this is %s stack\n", name);
-	t_stack *current = *stack;
 	while (current)
 	{
 		ft_printf("[%d] --> ", current->content);
 		current = current->next;
 	}
 	ft_printf("%p\n", current);
-} // enlever avant de push
+}
+// enlever avant de push

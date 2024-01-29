@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:56:05 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/28 22:31:45 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:37:35 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	sort_four(t_stack **a, t_stack **b)
 	place_it(a, b);
 	place_min(a);
 }
-
 
 void	identify_size_check_sort(t_stack **a, t_stack **b)
 {

@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:42:29 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/28 22:53:14 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/29 09:37:10 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	find_index(t_stack *s, int nb)
 {
-	int i;
-	t_stack *current;
-	
+	int		i;
+	t_stack	*current;
+
 	i = 0;
 	current = s;
-	while(current)
+	while (current)
 	{
-		if(current->content == nb)
-			return(i);
+		if (current->content == nb)
+			return (i);
 		current = current->next;
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 void	determine_side_a(t_stack **a, int pos, int pos_b)
@@ -51,14 +51,14 @@ void	determine_side_a(t_stack **a, int pos, int pos_b)
 
 int	worth_move(t_stack **a, t_stack **b)
 {
-	int	worth;
-	t_stack *current;
-	
+	int		worth;
+	t_stack	*current;
+
 	current = *a;
 	worth = how_many_ra_rb(a, b, current->content);
-	while(current)
+	while (current)
 	{
-		if(how_many_rra_rb(a, b, current->content) < worth)
+		if (how_many_rra_rb(a, b, current->content) < worth)
 			worth = how_many_rra_rb(a, b, current->content);
 		if (how_many_rra_rrb(a, b, current->content) < worth)
 			worth = how_many_rra_rrb(a, b, current->content);
@@ -73,7 +73,7 @@ int	worth_move(t_stack **a, t_stack **b)
 
 void	cmp_execute_case(t_stack **a, t_stack **b)
 {
-	t_stack *current;
+	t_stack	*current;
 	int		worth;
 	int		i;
 
@@ -83,7 +83,7 @@ void	cmp_execute_case(t_stack **a, t_stack **b)
 		current = *a;
 		worth = worth_move(a, b);
 		i = 0;
-		while(i != 1)
+		while (i != 1)
 		{
 			if (worth == how_many_ra_rrb(a, b, current->content))
 				i = execute_ra_rrb(a, b, current->content);
