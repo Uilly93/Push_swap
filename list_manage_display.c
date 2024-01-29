@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:17:35 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/29 09:42:12 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/29 11:46:50 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,28 +56,32 @@ t_stack	*argv_list(int ac, char **av)
 
 int	handle_string_arg(t_stack *stack_a, t_stack *stack_b, char **av)
 {
-	if ((!av) || (*av[1] == 0))
-		return (display_error());
 	stack_a = single_arg(av[1]);
-	if (global_checks(stack_a, stack_b) == 1)
-		return (display_error());
-	algo_sort(&stack_a, &stack_b);
-	print_stack(&stack_a, "stack_a");
-	return (0);
-}
-	// free_lsts(&stack_a, &stack_b);
-
-int	multi_args(t_stack *stack_a, t_stack *stack_b, int ac, char **av)
-{
-	stack_a = argv_list(ac, av);
-	if (global_checks(stack_a, stack_b) == 1)
-		return (display_error());
+	if ((!av) || (*av[1] == 0) || check_duplicate(stack_a, stack_b))
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
 	algo_sort(&stack_a, &stack_b);
 	free_lsts(&stack_a, &stack_b);
 	return (0);
 }
-		// print_stack(&stack_a, "stack_a");
-		// ft_printf("%d\n", check_sort(stack_a));
+	// print_stack(&stack_a, "stack_a");
+
+int	multi_args(t_stack *stack_a, t_stack *stack_b, int ac, char **av)
+{
+	stack_a = argv_list(ac, av);
+	check_duplicate(stack_a, stack_b);
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	algo_sort(&stack_a, &stack_b);
+	free_lsts(&stack_a, &stack_b);
+	return (0);
+}
+	// print_stack(&stack_a, "stack_a");
+	// ft_printf("%d\n", check_sort(stack_a));
 
 void	print_stack(t_stack **stack, char *name)
 {
