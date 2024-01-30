@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:26:50 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/29 17:48:05 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/30 16:50:55 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strdup(char *s)
 	char	*res;
 
 	res = malloc(ft_strlen(s) + 1);
+	if (!res)
+		return (NULL);
 	i = 0;
 	while (res[i])
 	{

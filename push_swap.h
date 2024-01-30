@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/29 17:49:04 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:15:04 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define PUSH_SWAP_H
 # include "ft_printf/ft_printf.h"
+# include "GNL/get_next_line.h"
 # include <stddef.h>
 # include <stdio.h>
 # include <string.h>
@@ -89,6 +90,7 @@ int		execute_ra_rb(t_stack **a, t_stack **b, int nb);
 int		execute_ra_rrb(t_stack **a, t_stack **b, int nb);
 int		execute_rra_rb(t_stack **a, t_stack **b, int nb);
 
+// void	read_output(void);
 char	*ft_itoa(int n);
 
 #endif

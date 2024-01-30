@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:44:29 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/24 10:16:52 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/30 09:28:18 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_stack	*new_node(int nb)
 	t_stack	*node;
 
 	node = malloc(sizeof(t_stack));
+	if (!node)
+		return (NULL);
 	node->content = nb;
 	node->next = NULL;
 	return (node);
