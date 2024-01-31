@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:57:12 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/31 15:45:10 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/31 17:01:23 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,63 +74,63 @@ int	check_duplicate(t_stack *a, t_stack *b)
 // 	}
 // 	return (0);
 // }
-int overflow_utile(char *s, long nb, long sign, int i)
+int overflow_cmp(long sign, long nb)
 {
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		nb = nb * 10 + (s[i] - '0');
-		if (sign < 0)
-		{
-			if(nb * sign < INT_MIN)
-				return (1);
-		}
-		else if(sign > 0)
-		{
-			if(nb * sign > INT_MAX)
-				return (1);
-		}
-		i++;
-	}
+	if (nb * sign > INT_MAX)
+			return (1);
+	else if (nb * sign < INT_MIN)
+			return (1);
 	return (0);
 }
 
-int	checker_atoi_overflow(char *s)
+int	overflow_skip(char *s, int i)
+{
+	if(s[i] == '-' && !(s[i + 1] >= '0' && s[i + 1] <= '9'))
+		return (1);
+	if (s[i] == '+' && !(s[i + 1] >= '0' && s[i + 1] <= '9'))
+		return (1);
+	return (0);
+}
+
+int	checker_atoi_overflow(char *s, int *i2)
 {
 	int		i;
 	long	nb;
 	long	sign;
 
-	i = 0;
+	i = *i2;
 	sign = 1;
 	nb = 0;
-	if(s[i] == '-' && !(s[i + 1] >= '0' && s[i + 1] <= '9'))
-		return (1);
-	if (s[i] == '+' && !(s[i + 1] >= '0' && s[i + 1] <= '9'))
-		return (1);
 	while ((s[i] >= 9 && s[i] <= 13) || (s[i] == 32))
 		i++;
-	if ((s[i] == '+') || (s[i] == '-'))
+	if (s[i] == '+')
 		i++;
+	if(overflow_skip(s, i))
+		return (1);
+	if (s[i] == '-')
+		sign *= -1 + (0 * i++);
 	while (s[i] >= '0' && s[i] <= '9')
 	{
 		nb = nb * 10 + (s[i] - '0');
-		if (nb * sign > INT_MAX || nb * sign < INT_MIN)
+		if (overflow_cmp(sign, nb) == 1)
 			return (1);
 		i++;
 	}
 	if (s[i] != '\0' && s[i] != ' ')
 		return (1);
-	return (0);
+	return (*i2 = i, 0);
 }
 
 int	check_argc_overflow(int ac, char **av)
 {
-	int i;
+	int	i;
+	int	i2;
 
 	i = 1;
 	while (i < ac)
 	{
-		if (checker_atoi_overflow(av[i]) == 1)
+		i2 = 0;
+		if (checker_atoi_overflow(av[i], &i2) == 1)
 			return (1);
 		i++;
 	}
@@ -144,14 +144,13 @@ int	check_argv_overflow(char *av)
 	i = 0;
 	while (av[i])
 	{
-		if(checker_atoi_overflow(av + i) == 1)
+		if(checker_atoi_overflow(av, &i) == 1)
 			return (1);
-		i++;
 	}
 	return (0);
 }
 
-int	check_sort(t_stack *a)
+int	check_sort(t_stack *a, t_stack *b)
 {
 	while (a->next)
 	{
@@ -162,6 +161,8 @@ int	check_sort(t_stack *a)
 		else
 			return (0);
 	}
+	if(b == NULL)
+		return (0);
 	return (1);
 }
 
