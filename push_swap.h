@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/30 11:15:04 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/31 15:02:02 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,11 @@ int		check_duplicate(t_stack *a, t_stack *b);
 int		check_overflow(int ac, char **arg);
 int		check_sort(t_stack *a);
 int		ft_strcmp(char *s1, char *s2);
+int		checker_atoi_overflow(char *s);
+int		overflow_utile(char *s, long nb, long sign, int i);
+int		check_argc_overflow(int ac, char **av);
+int		check_argv_overflow(char *av);
+
 
 void	sort_two(t_stack **a); // sort
 void	sort_three(t_stack **sa);
