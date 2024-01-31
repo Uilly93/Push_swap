@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:57:12 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/31 17:01:23 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/31 17:23:38 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	checker_atoi_overflow(char *s, int *i2)
 	nb = 0;
 	while ((s[i] >= 9 && s[i] <= 13) || (s[i] == 32))
 		i++;
-	if (s[i] == '+')
+	if (s[i] == '+' && (s[i + 1] >= '0' && s[i + 1] <= '9'))
 		i++;
 	if(overflow_skip(s, i))
 		return (1);

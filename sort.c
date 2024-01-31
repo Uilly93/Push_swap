@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:56:05 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/29 09:46:03 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/01/31 17:14:11 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	algo_sort(t_stack **a, t_stack **b)
 {
 	t_stack	*current;
 
-	if (check_sort(*a) == 1)
+	if (check_sort(*a, *b) == 1)
 		return ;
 	identify_size_check_sort(a, b);
 	if (lst_size(*a) > 4)
