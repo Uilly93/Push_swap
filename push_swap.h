@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/31 16:52:10 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/01 15:25:40 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,17 @@ int		multi_args(t_stack *stack_a, t_stack *stack_b, int ac, char **av);
 // checks and errors
 void	free_lsts(t_stack **a, t_stack **b);
 int		check_duplicate(t_stack *a, t_stack *b);
-int		check_overflow(int ac, char **arg);
-int		check_sort(t_stack *a, t_stack *b);
-int		ft_strcmp(char *s1, char *s2);
-int		checker_atoi_overflow(char *s, int *i2);
+// int		check_overflow(int ac, char **arg);
 int		overflow_cmp(long nb, long sign);
+int		overflow_skip(char *s, int i);
+int		checker_atoi_overflow(char *s, int *i2);
 int		check_argc_overflow(int ac, char **av);
 int		check_argv_overflow(char *av);
+
+//checker.c
+int		ft_strcmp(char *s1, char *s2);
+int		check_sort(t_stack *a, t_stack *b);
+
 
 
 void	sort_two(t_stack **a); // sort
@@ -95,7 +99,5 @@ int		execute_ra_rb(t_stack **a, t_stack **b, int nb);
 int		execute_ra_rrb(t_stack **a, t_stack **b, int nb);
 int		execute_rra_rb(t_stack **a, t_stack **b, int nb);
 
-// void	read_output(void);
-char	*ft_itoa(int n);
 
 #endif

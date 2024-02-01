@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:17:35 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/31 13:47:03 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/01 15:47:12 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int	multi_args(t_stack *stack_a, t_stack *stack_b, int ac, char **av)
 	free_lsts(&stack_a, &stack_b);
 	return (0);
 }
-	// print_stack(&stack_a, "stack_a");
 	// ft_printf("%d\n", check_sort(stack_a));
 
 void	print_stack(t_stack **stack, char *name)
