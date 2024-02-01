@@ -6,7 +6,7 @@
 #    By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 11:11:37 by wnocchi           #+#    #+#              #
-#    Updated: 2024/02/01 16:46:25 by wnocchi          ###   ########.fr        #
+#    Updated: 2024/02/01 20:19:33 by wnocchi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 PATH_GNL = GNL/
 PATH_PRINTF = ft_printf/
 MAIN = main.c 
-SRCS = optimization.c optimization_utils.c execute_moves.c list_utils.c list_manage_display.c checks_and_errors.c sort_utils.c utils.c sort.c pa.c pb.c ra.c rb.c rra.c rrb.c rr.c rrr.c sa.c sb.c ss.c
+SRCS = handle_overflow.c optimization.c optimization_utils.c execute_moves.c list_utils.c list_manage_display.c checks_and_errors.c sort_utils.c utils.c sort.c pa.c pb.c ra.c rb.c rra.c rrb.c rr.c rrr.c sa.c sb.c ss.c
 SRCS_BONUS = checker.c checker_utils.c GNL/get_next_line.c GNL/get_next_line_utils.c
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)

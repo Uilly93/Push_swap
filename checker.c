@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:36:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/02/01 19:53:55 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/01 22:12:51 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	return_error_exit(t_stack **a, t_stack **b)
 }
 
 
-int	execute_and_cmp(t_stack **a, t_stack **b, char *instruction)
+void	execute_and_cmp(t_stack **a, t_stack **b, char *instruction)
 {
 	if (ft_strcmp(instruction, "ra\n") == 0)
 		ft_ra(a, 0);
@@ -46,8 +46,8 @@ int	execute_and_cmp(t_stack **a, t_stack **b, char *instruction)
 	else if (ft_strcmp(instruction, "ss\n") == 0)
 		ft_ss(a, b, 0);
 	else
-		return(return_error_exit(a, b), 1);
-	return (0);
+		return (return_error_exit(a, b));
+
 }
 
 int	check_output(t_stack **a, t_stack **b)
@@ -74,8 +74,11 @@ int	string_arg_to_list(t_stack *a, t_stack *b, char **av)
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	if (check_sort(a, b) == 1)
-		return (free_lsts(&a, &b), 0);
+	// if (check_sort(a, b) == 1)
+	// {
+	// 	write(1, "OK\n", 3);
+	// 	return (free_lsts(&a, &b), 0);
+	// }
 	if (check_output(&a, &b) == 0)
 	{
 		if(check_sort(a, b) == 1)
@@ -93,8 +96,11 @@ int	mult_arg_to_list(t_stack *a, t_stack *b, int ac, char **av)
 {
 	b = NULL;
 	a = argv_list(ac, av);
-	if (check_sort(a, b) == 1)
-		return (free_lsts(&a, &b), 0);
+	// if (check_sort(a, b) == 1)
+	// {
+	// 	write(1, "OK\n", 3);
+	// 	return (free_lsts(&a, &b), 0);
+	// }
 	if (check_duplicate(a, b) == 1)
 	{
 		write(2, "Error\n", 6);
