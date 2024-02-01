@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:36:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/02/01 15:48:30 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/01 17:01:51 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,27 @@ void	return_error_exit(t_stack **a, t_stack **b)
 
 int	execute_and_cmp(t_stack **a, t_stack **b, char *instruction)
 {
-	if (ft_strcmp(instruction, "ra\n"))
+	if (ft_strcmp(instruction, "ra\n") == 0)
 		ft_ra(a);
-	else if (ft_strcmp(instruction, "rb\n"))
+	else if (ft_strcmp(instruction, "rb\n") == 0)
 		ft_rb(b);
-	else if (ft_strcmp(instruction, "rr\n"))
+	else if (ft_strcmp(instruction, "rr\n") == 0)
 		ft_rr(a, b);
-	else if (ft_strcmp(instruction, "rra\n"))
+	else if (ft_strcmp(instruction, "rra\n") == 0)
 		ft_rra(a);
-	else if (ft_strcmp(instruction, "rrb\n"))
+	else if (ft_strcmp(instruction, "rrb\n") == 0)
 		ft_rrb(b);
-	else if (ft_strcmp(instruction, "rrr\n"))
+	else if (ft_strcmp(instruction, "rrr\n") == 0)
 		ft_rrr(a, b);
-	else if (ft_strcmp(instruction, "pa\n"))
+	else if (ft_strcmp(instruction, "pa\n") == 0)
 		ft_pa(a, b);
-	else if (ft_strcmp(instruction, "pb\n"))
+	else if (ft_strcmp(instruction, "pb\n") == 0)
 		ft_pb(b, a);
-	else if (ft_strcmp(instruction, "sa\n"))
+	else if (ft_strcmp(instruction, "sa\n") == 0)
 		ft_sa(a);
-	else if (ft_strcmp(instruction, "sb\n"))
+	else if (ft_strcmp(instruction, "sb\n") == 0)
 		ft_sb(a);
-	else if (ft_strcmp(instruction, "ss\n"))
+	else if (ft_strcmp(instruction, "ss\n") == 0)
 		ft_ss(a, b);
 	else
 		return(return_error_exit(a, b), 1);
@@ -68,26 +68,25 @@ int	string_arg_to_list(t_stack *a, t_stack *b, char **av)
 {
 	b = NULL;
 	a = single_arg(av[1]);
-	if (check_sort(a, b) == 0)
-		return (free_lsts(&a, &b), 0);
 	if ((!av) || !a || (*av[1] == 0) || check_duplicate(a, b) == 1)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
+	if (check_sort(a, b) == 1)
+	{
+		write(1, "OK\n", 3);
+		return (free_lsts(&a, &b), 0);
+	}
 	if (check_output(&a, &b) == 0)
 	{
-		if(check_sort(a, b) == 0)
+		if(check_sort(a, b) == 1)
 			write(1, "OK\n", 3);
 		else
 			write(1, "KO\n", 3);
 	}
 	else
-	{
 		write(2, "Error\n", 6);
-		free_lsts(&a, &b);
-		return (1);
-	}
 	free_lsts(&a, &b);
 	return (0);
 }
@@ -97,14 +96,17 @@ int	mult_arg_to_list(t_stack *a, t_stack *b, int ac, char **av)
 	b = NULL;
 	a = argv_list(ac, av);
 	if (check_sort(a, b) == 1)
+	{
+		write(1, "OK\n", 3);
 		return (free_lsts(&a, &b), 0);
+	}
 	if (check_duplicate(a, b) == 1)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
 	check_output(&a, &b);
-	if(check_sort(a, b) == 0)
+	if(check_sort(a, b) == 1)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);

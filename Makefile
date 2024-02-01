@@ -6,7 +6,7 @@
 #    By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 11:11:37 by wnocchi           #+#    #+#              #
-#    Updated: 2024/02/01 13:10:36 by wnocchi          ###   ########.fr        #
+#    Updated: 2024/02/01 16:46:25 by wnocchi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ all: printf $(NAME)
 $(NAME): $(OBJS) 
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MAIN) -L$(PATH_PRINTF) -lftprintf
 
-bonus: $(NAME) printf $(BONUS_NAME)
+bonus: printf $(BONUS_NAME) $(NAME)
 $(BONUS_NAME): $(OBJS_BONUS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BONUS_NAME) $(OBJS_BONUS) $(OBJS) -L$(PATH_PRINTF) -lftprintf
 
@@ -45,4 +45,4 @@ re: fclean all
 printf:
 	$(MAKE) -C $(PATH_PRINTF)
 
-.PHONY: all clean fclean re printf
+.PHONY: all bonus clean fclean re printf
