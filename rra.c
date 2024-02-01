@@ -6,13 +6,13 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:28:29 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/23 17:03:17 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/01 18:34:31 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rra(t_stack **sa)
+void	ft_rra(t_stack **sa, int print)
 {
 	t_stack	*tmp;
 	t_stack	*current;
@@ -27,5 +27,6 @@ void	ft_rra(t_stack **sa)
 	tmp->next = NULL;
 	current->next = *sa;
 	*sa = current;
-	ft_printf("rra\n");
+	if (print == 1)
+		ft_printf("rra\n");
 }

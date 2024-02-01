@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 20:03:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/02/01 15:25:40 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/01 18:38:27 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-void	ft_sa(t_stack **sa);
-void	ft_sb(t_stack **sb);
-void	ft_ss(t_stack **sa, t_stack **sb);
-void	ft_pa(t_stack **sa, t_stack **sb);
-void	ft_pb(t_stack **sb, t_stack **sa);
-void	ft_ra(t_stack **sa);
-void	ft_rb(t_stack **sb);
-void	ft_rr(t_stack **sa, t_stack **sb);
-void	ft_rra(t_stack **sa);
-void	ft_rrb(t_stack **sb);
-void	ft_rrr(t_stack **sa, t_stack **sb);
+void	ft_sa(t_stack **sa, int print);
+void	ft_sb(t_stack **sb, int print);
+void	ft_ss(t_stack **sa, t_stack **sb, int print);
+void	ft_pa(t_stack **sa, t_stack **sb, int print);
+void	ft_pb(t_stack **sb, t_stack **sa, int print);
+void	ft_ra(t_stack **sa, int print);
+void	ft_rb(t_stack **sb, int print);
+void	ft_rr(t_stack **sa, t_stack **sb, int print);
+void	ft_rra(t_stack **sa, int print);
+void	ft_rrb(t_stack **sb, int print);
+void	ft_rrr(t_stack **sa, t_stack **sb, int print);
 
 long	ft_atoi(char *s);// utils
 int		ft_min(t_stack *s);

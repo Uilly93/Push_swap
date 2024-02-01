@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 11:56:05 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/02/01 15:36:38 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/01 18:41:37 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort_two(t_stack **a)
 {
 	if ((*a)->content > (*a)->next->content)
-		ft_sa(a);
+		ft_sa(a, 1);
 }
 
 void	sort_three(t_stack **sa)
@@ -29,25 +29,25 @@ void	sort_three(t_stack **sa)
 	bot = (*sa)->next->next->content;
 	if (top < mid && mid > bot && top < bot)
 	{
-		ft_sa(sa);
-		ft_ra(sa);
+		ft_sa(sa, 1);
+		ft_ra(sa, 1);
 	}
 	else if (top > mid && mid < bot && top < bot)
-		ft_sa(sa);
+		ft_sa(sa, 1);
 	else if (top > mid && mid > bot && top > bot)
 	{
-		ft_sa(sa);
-		ft_rra(sa);
+		ft_sa(sa, 1);
+		ft_rra(sa, 1);
 	}
 	else if (top < mid && mid > bot && top > bot)
-		ft_rra(sa);
+		ft_rra(sa, 1);
 	else if (top > mid && mid < bot && top > bot)
-		ft_ra(sa);
+		ft_ra(sa, 1);
 }
 
 void	sort_four(t_stack **a, t_stack **b)
 {
-	ft_pb(b, a);
+	ft_pb(b, a, 1);
 	sort_three(a);
 	place_it(a, b);
 	place_min(a);
@@ -74,8 +74,8 @@ void	algo_sort(t_stack **a, t_stack **b)
 	identify_size_check_sort(a, b);
 	if (lst_size(*a) > 4)
 	{
-		ft_pb(b, a);
-		ft_pb(b, a);
+		ft_pb(b, a, 1);
+		ft_pb(b, a, 1);
 		cmp_execute_case(a, b);
 		place_max_b(b);
 		sort_three(a);

@@ -6,13 +6,13 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:11:03 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/23 17:01:04 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/01 18:36:19 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sb(t_stack **sb)
+void	ft_sb(t_stack **sb, int print)
 {
 	int	tmp;
 
@@ -22,5 +22,6 @@ void	ft_sb(t_stack **sb)
 		(*sb)->content = (*sb)->next->content;
 		(*sb)->next->content = tmp;
 	}
-	ft_printf("sb\n");
+	if (print == 1)
+		ft_printf("sb\n");
 }

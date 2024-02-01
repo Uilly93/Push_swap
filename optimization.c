@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:42:29 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/29 09:37:10 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/01 18:38:40 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	determine_side_a(t_stack **a, int pos, int pos_b)
 	{
 		while (pos > 0)
 		{
-			ft_ra(a);
+			ft_ra(a, 1);
 			pos--;
 		}
 	}
@@ -43,7 +43,7 @@ void	determine_side_a(t_stack **a, int pos, int pos_b)
 	{
 		while (pos_b > 0)
 		{
-			ft_rra(a);
+			ft_rra(a, 1);
 			pos_b--;
 		}
 	}

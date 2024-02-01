@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:38:19 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/01/29 09:37:57 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/01 18:42:25 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	place_it(t_stack **a, t_stack **b)
 	if (((*b)->content > ft_max(*a)) || ((*b)->content < ft_min(*a)))
 		place_min(a);
 	determine_side_a(a, pos, pos_b);
-	ft_pa(a, b);
+	ft_pa(a, b, 1);
 }
 
 void	place_min(t_stack **s)
@@ -30,12 +30,12 @@ void	place_min(t_stack **s)
 	if (find_pos(*s, ft_min(*s)) < (lst_size(*s) / 2))
 	{
 		while ((*s)->content != ft_min(*s))
-			ft_ra(s);
+			ft_ra(s, 1);
 	}
 	else
 	{
 		while ((*s)->content != ft_min(*s))
-			ft_rra(s);
+			ft_rra(s, 1);
 	}
 }
 
@@ -44,11 +44,11 @@ void	place_max_b(t_stack **s)
 	if (find_pos(*s, ft_max(*s)) < (lst_size(*s) / 2))
 	{
 		while ((*s)->content != ft_max(*s))
-			ft_rb(s);
+			ft_rb(s, 1);
 	}
 	else
 	{
 		while ((*s)->content != ft_max(*s))
-			ft_rrb(s);
+			ft_rrb(s, 1);
 	}
 }
