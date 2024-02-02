@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 10:15:02 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/02/01 18:35:22 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/02 14:57:01 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,10 @@
 
 void	ft_rrr(t_stack **sa, t_stack **sb, int print)
 {
-	t_stack	*tmp;
-	t_stack	*current;
-
-	tmp = NULL;
-	current = *sa;
-	while (current->next != NULL)
-	{
-		tmp = current;
-		current = current->next;
-	}
-	tmp->next = NULL;
-	current->next = *sa;
-	*sa = current;
-	tmp = NULL;
-	current = *sb;
-	while (current->next != NULL)
-	{
-		tmp = current;
-		current = current->next;
-	}
-	tmp->next = NULL;
-	current->next = *sb;
-	*sb = current;
+	if (lst_size (*sa) > 1)
+		ft_rra(sa, 0);
+	if (lst_size (*sb) > 1)
+		ft_rrb(sb, 0);
 	if (print == 1)
 		ft_printf("rrr\n");
 }

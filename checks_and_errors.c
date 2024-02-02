@@ -6,12 +6,11 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:57:12 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/02/02 09:48:08 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/02 12:32:36 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
 
 int	check_duplicate(t_stack *a, t_stack *b)
 {
@@ -39,8 +38,8 @@ int	check_duplicate(t_stack *a, t_stack *b)
 
 int	check_sort(t_stack *a, t_stack *b)
 {
-	t_stack *current;
-	
+	t_stack	*current;
+
 	current = a;
 	if (!a)
 		return (0);
@@ -53,7 +52,7 @@ int	check_sort(t_stack *a, t_stack *b)
 		else
 			return (0);
 	}
-	if(b == NULL)
+	if (b == NULL)
 		return (1);
 	return (0);
 }
@@ -79,4 +78,14 @@ void	free_lsts(t_stack **a, t_stack **b)
 		current = current->next;
 		free(prev);
 	}
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }

@@ -6,24 +6,24 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 20:18:31 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/02/01 20:18:56 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/02 12:22:09 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int overflow_cmp(long sign, long nb)
+int	overflow_cmp(long sign, long nb)
 {
 	if (nb * sign > INT_MAX)
-			return (1);
+		return (1);
 	else if (nb * sign < INT_MIN)
-			return (1);
+		return (1);
 	return (0);
 }
 
 int	overflow_skip(char *s, int i)
 {
-	if(s[i] == '-' && !(s[i + 1] >= '0' && s[i + 1] <= '9'))
+	if (s[i] == '-' && !(s[i + 1] >= '0' && s[i + 1] <= '9'))
 		return (1);
 	if (s[i] == '+' && !(s[i + 1] >= '0' && s[i + 1] <= '9'))
 		return (1);
@@ -43,7 +43,7 @@ int	checker_atoi_overflow(char *s, int *i2)
 		i++;
 	if (s[i] == '+' && (s[i + 1] >= '0' && s[i + 1] <= '9'))
 		i++;
-	if(overflow_skip(s, i))
+	if (overflow_skip(s, i))
 		return (1);
 	if (s[i] == '-')
 		sign *= -1 + (0 * i++);
@@ -77,12 +77,12 @@ int	check_argc_overflow(int ac, char **av)
 
 int	check_argv_overflow(char *av)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (av[i])
 	{
-		if(checker_atoi_overflow(av, &i) == 1)
+		if (checker_atoi_overflow(av, &i) == 1)
 			return (1);
 	}
 	return (0);

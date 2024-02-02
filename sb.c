@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:11:03 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/02/01 21:31:43 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/02 14:14:26 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_sb(t_stack **sb, int print)
 		tmp = (*sb)->content;
 		(*sb)->content = (*sb)->next->content;
 		(*sb)->next->content = tmp;
+		if (print == 1)
+			ft_printf("sb\n");
 	}
-	if (print == 1)
-		ft_printf("sb\n");
 }

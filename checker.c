@@ -6,20 +6,17 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:36:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/02/02 09:45:27 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/02 14:57:31 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "GNL/get_next_line.h"
 #include "push_swap.h"
 
-void	return_error_exit(void)
-{
-	write(2, "Error\n", 6);
-	// free_lsts(a, b);
-	// exit(1);
-}
-
+// void	return_error_exit(void)
+// {
+// 	write(2, "Error\n", 6);
+// }
 
 void	execute_and_cmp(t_stack **a, t_stack **b, char *instruction)
 {
@@ -46,18 +43,15 @@ void	execute_and_cmp(t_stack **a, t_stack **b, char *instruction)
 	else if (ft_strcmp(instruction, "ss\n") == 0)
 		ft_ss(a, b, 0);
 	else
-		return (return_error_exit());
-
+		(write(2, "Error\n", 6));
 }
 
 int	check_output(t_stack **a, t_stack **b)
 {
-	char *instruction;
+	char	*instruction;
 
 	instruction = get_next_line(0);
-	if (!instruction)
-		return (1);
-	while(instruction)
+	while (instruction)
 	{
 		execute_and_cmp(a, b, instruction);
 		free(instruction);
@@ -65,6 +59,7 @@ int	check_output(t_stack **a, t_stack **b)
 	}
 	return (0);
 }
+
 int	string_arg_to_list(t_stack *a, t_stack *b, char **av)
 {
 	b = NULL;
@@ -74,14 +69,9 @@ int	string_arg_to_list(t_stack *a, t_stack *b, char **av)
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	// if (check_sort(a, b) == 1)
-	// {
-	// 	write(1, "OK\n", 3);
-	// 	return (free_lsts(&a, &b), 0);
-	// }
 	if (check_output(&a, &b) == 0)
 	{
-		if(check_sort(a, b) == 1 && b == NULL)
+		if (check_sort(a, b) == 1 && b == NULL)
 			write(1, "OK\n", 3);
 		else
 			write(1, "KO\n", 3);
@@ -96,18 +86,13 @@ int	mult_arg_to_list(t_stack *a, t_stack *b, int ac, char **av)
 {
 	b = NULL;
 	a = argv_list(ac, av);
-	// if (check_sort(a, b) == 1)
-	// {
-	// 	write(1, "OK\n", 3);
-	// 	return (free_lsts(&a, &b), 0);
-	// }
 	if (check_duplicate(a, b) == 1)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
 	check_output(&a, &b);
-	if(check_sort(a, b) == 1)
+	if (check_sort(a, b) == 1 && b == NULL)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
@@ -117,20 +102,19 @@ int	mult_arg_to_list(t_stack *a, t_stack *b, int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	if(ac > 1)
-	{
-		t_stack	*stack_a;
-		t_stack	*stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-		stack_a = NULL;
-		stack_b = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
+	if (ac > 1)
+	{
 		if (ac == 2 && check_argv_overflow(av[1]) == 0)
 			string_arg_to_list(stack_a, stack_b, av);
 		else if (ac > 2 && check_argc_overflow(ac, av) == 0)
 			mult_arg_to_list(stack_a, stack_b, ac, av);
 		else
-			write(2, "Error\n", 6);	
+			write(2, "Error\n", 6);
 	}
 	return (0);
 }
-
