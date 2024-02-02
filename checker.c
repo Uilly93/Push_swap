@@ -6,18 +6,18 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:36:18 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/02/01 22:12:51 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/02 09:45:27 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "GNL/get_next_line.h"
 #include "push_swap.h"
 
-void	return_error_exit(t_stack **a, t_stack **b)
+void	return_error_exit(void)
 {
 	write(2, "Error\n", 6);
-	free_lsts(a, b);
-	exit(1);
+	// free_lsts(a, b);
+	// exit(1);
 }
 
 
@@ -46,7 +46,7 @@ void	execute_and_cmp(t_stack **a, t_stack **b, char *instruction)
 	else if (ft_strcmp(instruction, "ss\n") == 0)
 		ft_ss(a, b, 0);
 	else
-		return (return_error_exit(a, b));
+		return (return_error_exit());
 
 }
 
@@ -81,7 +81,7 @@ int	string_arg_to_list(t_stack *a, t_stack *b, char **av)
 	// }
 	if (check_output(&a, &b) == 0)
 	{
-		if(check_sort(a, b) == 1)
+		if(check_sort(a, b) == 1 && b == NULL)
 			write(1, "OK\n", 3);
 		else
 			write(1, "KO\n", 3);

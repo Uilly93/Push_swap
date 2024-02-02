@@ -6,7 +6,7 @@
 /*   By: wnocchi <wnocchi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:57:12 by wnocchi           #+#    #+#             */
-/*   Updated: 2024/02/01 21:25:52 by wnocchi          ###   ########.fr       */
+/*   Updated: 2024/02/02 09:48:08 by wnocchi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	check_sort(t_stack *a, t_stack *b)
 	t_stack *current;
 	
 	current = a;
+	if (!a)
+		return (0);
 	while (current->next)
 	{
 		if (current->content < current->next->content)
